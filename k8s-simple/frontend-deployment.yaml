@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: airesume-frontend
+  namespace: airesume
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: airesume-frontend
+  template:
+    metadata:
+      labels:
+        app: airesume-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: khushboo272/airesumebuilder-frontend:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80

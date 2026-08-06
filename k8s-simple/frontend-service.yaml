@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+  namespace: airesume
+spec:
+  selector:
+    app: airesume-frontend
+  ports:
+  - port: 80
+    targetPort: 80

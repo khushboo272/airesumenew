@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: airesume-backend
+  namespace: airesume
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: airesume-backend
+  template:
+    metadata:
+      labels:
+        app: airesume-backend
+    spec:
+      containers:
+        - name: backend
+          image: khushboo272/airesumebuilder-backend:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5000
+          envFrom:
+            - configMapRef:
+                name: airesume-config
+            - secretRef:
+                name: airesume-secrets
