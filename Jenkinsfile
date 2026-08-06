@@ -86,7 +86,7 @@ pipeline {
             }
         }
 
-        stage('Deploy to Kubernetes') {
+      /*  stage('Deploy to Kubernetes') {
             steps {
 
                 sh '''
@@ -114,7 +114,7 @@ pipeline {
                 kubectl rollout status deployment/airesume-frontend -n airesume
                 '''
             }
-        }
+        }*/
 
     }
 
